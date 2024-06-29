@@ -57,6 +57,11 @@ def upload_form():
     backgrounds = sorted([f for f in os.listdir(app.config['BACKGROUND_FOLDER']) if f.startswith('bg_') and f.endswith('.jpg')])
     return render_template('index.html', backgrounds=backgrounds)
 
+@app.route('/mob')
+def upload_form_mob():
+    backgrounds = sorted([f for f in os.listdir(app.config['BACKGROUND_FOLDER']) if f.startswith('bg_') and f.endswith('.jpg')])
+    return render_template('index_mob.html', backgrounds=backgrounds)
+
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
