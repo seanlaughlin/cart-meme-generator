@@ -144,31 +144,3 @@ input[type="file"] + label:hover {
     justify-content: center;
     align-items: center;
 }
-
-@media (max-width: 767px) {
-    body {
-        font-size: 1.5em;
-    }
-    .container {
-        transform: scale(1.5);
-    }
-    .image-container {
-        width: 600px;
-        height: 600px;
-    }
-    #loader {
-        width: 120px;
-        height: 120px;
-    }
-    #upload-preview-container {
-        width: 375px;
-        height: 375px;
-    }
-    .background-thumbnail {
-        width: 150px;
-        height: 150px;
-    }
-    input[type="file"] + label {
-        padding: 15px 75px;
-    }
-}
