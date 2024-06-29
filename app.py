@@ -12,15 +12,18 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 if not os.path.exists(app.config['OUTPUT_FOLDER']):
     os.makedirs(app.config['OUTPUT_FOLDER'])
 
+
 def resize_image_maintain_aspect_ratio(image, height):
     width = int((height / float(image.size[1])) * image.size[0])
     return image.resize((width, height), Image.Resampling.LANCZOS)
+
 
 def crop_to_content(image):
     bbox = image.getbbox()
     if bbox:
         return image.crop(bbox)
     return image
+
 
 def create_meme(uploaded_image_path, background_image_path, cart_back_path, cart_front_path, output_path):
     cart_back = Image.open(cart_back_path).convert("RGBA")
@@ -37,21 +40,23 @@ def create_meme(uploaded_image_path, background_image_path, cart_back_path, cart
         uploaded_image = Image.open(uploaded_image_path).convert("RGBA")
         uploaded_image = remove(uploaded_image)
         uploaded_image = crop_to_content(uploaded_image)
-        uploaded_image = resize_image_maintain_aspect_ratio(uploaded_image, 1000)
+        uploaded_image = resize_image_maintain_aspect_ratio(uploaded_image, 500)
 
         cart_width, cart_height = cart_back.size
-        x_offset = ((cart_width - uploaded_image.width) // 2) + 100
-        y_offset = cart_height - 1850  # Adjust y_offset if needed
+        x_offset = ((cart_width - uploaded_image.width) // 2) + 50
+        y_offset = cart_height - 925  # Adjust y_offset if needed
 
         meme.paste(uploaded_image, (x_offset, y_offset), mask=uploaded_image)
     meme.paste(cart_front, (0, 0), mask=cart_front)
 
     meme.save(output_path, format="PNG")
 
+
 @app.route('/')
 def upload_form():
-    backgrounds = [f for f in os.listdir(app.config['BACKGROUND_FOLDER']) if os.path.isfile(os.path.join(app.config['BACKGROUND_FOLDER'], f))]
+    backgrounds = sorted([f for f in os.listdir(app.config['BACKGROUND_FOLDER']) if f.startswith('bg_') and f.endswith('.jpg')])
     return render_template('index.html', backgrounds=backgrounds)
+
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
@@ -73,9 +78,11 @@ def upload_image():
     create_meme(file_path, background_path, app.config['CART_BACK_PATH'], app.config['CART_FRONT_PATH'], output_path)
     return send_from_directory(app.config['OUTPUT_FOLDER'], 'output_meme.png')
 
+
 @app.route('/outputs/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['OUTPUT_FOLDER'], filename)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
