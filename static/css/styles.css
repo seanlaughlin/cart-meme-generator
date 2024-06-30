@@ -20,7 +20,6 @@ body {
     align-items: center;
     width: 400px;
     height: 400px;
-    margin-bottom: 20px;
     margin-top: 5px;
     border-radius: 1rem;
     overflow: hidden;
@@ -67,16 +66,7 @@ body {
     font-size: 0.9em;
     color: #555;
 }
-.background-thumbnail {
-    display: inline-block;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    border: 3px solid transparent;
-    cursor: pointer;
-}
+
 .background-thumbnail.selected {
     border: 3px solid #CC0000;
 }
@@ -85,6 +75,47 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 20px;
+}
+
+.swiper-wrapper-container {
+    margin-top: 20px;
+    width: 725px;
+    height: 150px;
+    position: relative;
+}
+
+.swiper-container {
+    width: 600px;
+    height: 150px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden !important;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ff0001 !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swiper-pagination-bullet-active{
+    background-color: #ff0001 !important;
+}
+.background-thumbnail {
+    width: 125px;
+    height: auto;
+    border-radius: 50%;
 }
 form {
     display: flex;
@@ -99,7 +130,7 @@ form {
 h1, h2, h3 {
     margin: 0;
     padding: 0;
-    color: #FF0001;
+    color: #000;
 }
 
 input[type="file"] {
@@ -113,13 +144,13 @@ input[type="file"] {
 
 input[type="file"] + label {
     display: inline-block;
-    padding: 10px 50px;
+    padding: 10px 35px;
     color: white;
     background-color: red;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    margin: 0.75rem;
+    margin: 2.5rem;
 }
 
 input[type="file"] + label:hover {
@@ -133,14 +164,19 @@ input[type="file"] + label:hover {
     display: none;
 }
 
-.swiper-container {
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 30px;
+button {
+    display: inline-block;
+    padding: 20px 50px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.25rem;
+    border: none;
+    margin: 0.75rem;
 }
 
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+button:hover{
+    background-color: #CC0000;
 }

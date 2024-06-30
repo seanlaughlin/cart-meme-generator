@@ -54,12 +54,23 @@ def create_meme(uploaded_image_path, background_image_path, cart_back_path, cart
 
 @app.route('/')
 def upload_form():
-    backgrounds = sorted([f for f in os.listdir(app.config['BACKGROUND_FOLDER']) if f.startswith('bg_') and f.endswith('.jpg')])
+    backgrounds = []
+    for f in os.listdir(app.config['BACKGROUND_FOLDER']):
+        if f.startswith('bg_') and f.endswith('.jpg') and not f.startswith('bg_thumb_'):
+            num = f.split('_')[-1].split('.')[0]
+            thumb_filename = f"bg_thumb_{num}.jpg"
+            backgrounds.append((thumb_filename, f))
     return render_template('index.html', backgrounds=backgrounds)
+
 
 @app.route('/mob')
 def upload_form_mob():
-    backgrounds = sorted([f for f in os.listdir(app.config['BACKGROUND_FOLDER']) if f.startswith('bg_') and f.endswith('.jpg')])
+    backgrounds = []
+    for f in os.listdir(app.config['BACKGROUND_FOLDER']):
+        if f.startswith('bg_') and f.endswith('.jpg') and not f.startswith('bg_thumb_'):
+            num = f.split('_')[-1].split('.')[0]
+            thumb_filename = f"bg_thumb_{num}.jpg"
+            backgrounds.append((thumb_filename, f))
     return render_template('index_mob.html', backgrounds=backgrounds)
 
 
