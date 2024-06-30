@@ -40,11 +40,11 @@ def create_meme(uploaded_image_path, background_image_path, cart_back_path, cart
         uploaded_image = Image.open(uploaded_image_path).convert("RGBA")
         uploaded_image = remove(uploaded_image)
         uploaded_image = crop_to_content(uploaded_image)
-        uploaded_image = resize_image_maintain_aspect_ratio(uploaded_image, 500)
+        uploaded_image = resize_image_maintain_aspect_ratio(uploaded_image, 400)
 
         cart_width, cart_height = cart_back.size
-        x_offset = ((cart_width - uploaded_image.width) // 2) + 50
-        y_offset = cart_height - 925
+        x_offset = ((cart_width - uploaded_image.width) // 2) + 40
+        y_offset = cart_height - 740
 
         meme.paste(uploaded_image, (x_offset, y_offset), mask=uploaded_image)
     meme.paste(cart_front, (0, 0), mask=cart_front)
