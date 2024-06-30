@@ -71,8 +71,8 @@ body {
     display: inline-block;
     border-radius: 50%;
     overflow: hidden;
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
     margin: 2.5px;
     border: 3px solid transparent;
     cursor: pointer;
@@ -100,6 +100,7 @@ h1, h2, h3 {
     margin: 0;
     padding: 0;
     color: #000;
+    font-size: 1rem;
 }
 
 input[type="file"] {
@@ -164,14 +165,14 @@ button:hover{
 
 .swiper-wrapper-container {
     margin: 10px;
-    width: 420px;
-    height: 75px;
+    width: 340px;
+    height: 80px;
     position: relative;
 }
 
 .swiper-container {
-    width: 320px;
-    height: 75px;
+    width: 260px;
+    height: 80px;
     position: relative;
     margin: 0 auto;
     overflow: hidden !important;
@@ -181,8 +182,12 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
+    width: 80px;
 
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 2rem !important;
 }
 
 .swiper-button-next,
