@@ -71,8 +71,8 @@ body {
     display: inline-block;
     border-radius: 50%;
     overflow: hidden;
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     margin: 2.5px;
     border: 3px solid transparent;
     cursor: pointer;
@@ -99,7 +99,7 @@ form {
 h1, h2, h3 {
     margin: 0;
     padding: 0;
-    color: #FF0001;
+    color: #000;
 }
 
 input[type="file"] {
@@ -119,7 +119,7 @@ input[type="file"] + label {
     border-radius: 2.5px;
     cursor: pointer;
     font-weight: bold;
-    margin: 0.4rem;
+    margin: 2rem;
 }
 
 input[type="file"] + label:hover {
@@ -143,4 +143,53 @@ input[type="file"] + label:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 25px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    margin: 1.5rem;
+}
+
+button:hover{
+    background-color: #CC0000;
+}
+
+.swiper-wrapper-container {
+    margin: 10px;
+    width: 420px;
+    height: 75px;
+    position: relative;
+}
+
+.swiper-container {
+    width: 320px;
+    height: 75px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden !important;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ff0001 !important;
+    position: absolute !important;
+    top: 90% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10;
 }

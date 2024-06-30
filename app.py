@@ -44,7 +44,7 @@ def create_meme(uploaded_image_path, background_image_path, cart_back_path, cart
 
         cart_width, cart_height = cart_back.size
         x_offset = ((cart_width - uploaded_image.width) // 2) + 50
-        y_offset = cart_height - 925  # Adjust y_offset if needed
+        y_offset = cart_height - 925
 
         meme.paste(uploaded_image, (x_offset, y_offset), mask=uploaded_image)
     meme.paste(cart_front, (0, 0), mask=cart_front)
@@ -60,6 +60,7 @@ def upload_form():
             num = f.split('_')[-1].split('.')[0]
             thumb_filename = f"bg_thumb_{num}.jpg"
             backgrounds.append((thumb_filename, f))
+    backgrounds.sort(key=lambda x: int(x[1].split('_')[-1].split('.')[0]))
     return render_template('index.html', backgrounds=backgrounds)
 
 
@@ -71,6 +72,7 @@ def upload_form_mob():
             num = f.split('_')[-1].split('.')[0]
             thumb_filename = f"bg_thumb_{num}.jpg"
             backgrounds.append((thumb_filename, f))
+    backgrounds.sort(key=lambda x: int(x[1].split('_')[-1].split('.')[0]))
     return render_template('index_mob.html', backgrounds=backgrounds)
 
 
