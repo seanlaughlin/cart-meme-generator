@@ -24,7 +24,6 @@ body {
     border-radius: 1rem;
     overflow: hidden;
     position: relative;
-    background-color: white;
 }
 #loader {
     display: none;
