@@ -6,7 +6,7 @@ body {
     margin: 1rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
-    background-color: #fff;
+    background-color: #ff0001;
     overflow: auto;
 }
 .container {
@@ -68,7 +68,7 @@ body {
 }
 
 .background-thumbnail.selected {
-    border: 3px solid #CC0000;
+    border: 3px solid white;
 }
 .thumbnails-container {
     display: flex;
@@ -102,7 +102,7 @@ body {
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: #ff0001 !important;
+    color: white !important;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -130,7 +130,7 @@ form {
 h1, h2, h3 {
     margin: 0;
     padding: 0;
-    color: #000;
+    color: #fff;
 }
 
 input[type="file"] {
@@ -145,8 +145,8 @@ input[type="file"] {
 input[type="file"] + label {
     display: inline-block;
     padding: 10px 35px;
-    color: white;
-    background-color: red;
+    color: #ff0001;
+    background-color: white;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -154,7 +154,7 @@ input[type="file"] + label {
 }
 
 input[type="file"] + label:hover {
-    background-color: #CC0000;
+    background-color: #e5e5e5;
 }
 
 #file-name {
@@ -167,8 +167,8 @@ input[type="file"] + label:hover {
 button {
     display: inline-block;
     padding: 20px 50px;
-    color: white;
-    background-color: red;
+    color: #ff0001;
+    background-color: white;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -178,5 +178,5 @@ button {
 }
 
 button:hover{
-    background-color: #CC0000;
+    background-color: #e5e5e5;
 }
